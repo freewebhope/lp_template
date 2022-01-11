@@ -37,4 +37,15 @@ lp_template - dist: サーバーに上げるフォルダ
                 └css: CSSの元データが入っているフォルダ
 ```
 
+## サーバアップの方法
+### 1.リポジトリのSettings/Secretsを開いて以下を作成
+それぞれの情報はesaより取得ください。
+```
+FTP_PASSWORD
+FTP_SERVER
+FTP_USERNAME
+```
+### 2.mainブランチに最新のデータをマージ
 
+### 3.以下で確認(反映に１-5分ほどかかります)
+`https://test.fwh.co.jp/[リポジトリ名]`

@@ -31,7 +31,7 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: <@U02K2FFERUP>
+          text: テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合はcoderにご相談ください
           attachments: |
             [
               {
@@ -44,8 +44,12 @@ jobs:
                     "value": "修正がある場合はcoderにご相談ください"
                   },
                   {
+                    "title": "planner",
+                    "value": ${{ secrets.FWH_PLANNER }}
+                  },
+                  {
                     "title": "coder",
-                    "value": "@cobashi"
+                    "value": ${{ secrets.FWH_CODER }}
                   },
                   {
                     "title": "testURL",

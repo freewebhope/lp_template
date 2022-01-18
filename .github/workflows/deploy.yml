@@ -31,7 +31,7 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合は${{ secrets.FWH_CODER }}にご相談ください
+          text: ${{ steps.version.outputs.rep }}のLPがテストサーバにアップされました。修正がある場合は${{ secrets.FWH_CODER }}にご相談ください
           attachments: |
             [
               {
@@ -45,7 +45,7 @@ jobs:
                   },
                   {
                     "title": "planner",
-                    "value": "${{ secrets.FWH_PLANNER }}"
+                    "value": "${{ github.event.repository.description }}"
                   },
                   {
                     "title": "coder",

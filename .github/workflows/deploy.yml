@@ -45,11 +45,11 @@ jobs:
                   },
                   {
                     "title": "coder",
-                    "value": @cobashi
+                    "value": "@cobashi"
                   },
                   {
                     "title": "Compare URL",
-                    "value": https://test.fwh.co.jp/"${{ steps.version.outputs.rep }}"
+                    "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
                   }
                 ]
               }

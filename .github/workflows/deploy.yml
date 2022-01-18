@@ -31,7 +31,7 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: ${{ secrets.FWH_PLANNER }}さん。テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合は${{ secrets.FWH_CODER }}にご相談ください
+          text: <${{ secrets.FWH_PLANNER }}>さん。テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合は<${{ secrets.FWH_CODER }}>にご相談ください
           attachments: |
             [
               {

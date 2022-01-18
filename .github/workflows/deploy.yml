@@ -31,7 +31,7 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: テイクアンドギブニーズのLPがテストサーバにアップされました。
+          text: <@U02K2FFERUP>
           attachments: |
             [
               {
@@ -48,7 +48,7 @@ jobs:
                     "value": "@cobashi"
                   },
                   {
-                    "title": "Compare URL",
+                    "title": "testURL",
                     "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
                   }
                 ]

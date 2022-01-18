@@ -31,7 +31,7 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: <${{ secrets.FWH_PLANNER }}>さん。テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合は<${{ secrets.FWH_CODER }}>にご相談ください
+          text: テイクアンドギブニーズのLPがテストサーバにアップされました。修正がある場合は<@U02K2FFERUP>にご相談ください
           attachments: |
             [
               {
@@ -42,6 +42,14 @@ jobs:
                   {
                     "title": "testURL",
                     "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
+                  },
+                  {
+                    "title": "planner",
+                    "value": "<@U020YM87PJ4>"
+                  },
+                  {
+                    "title": "coder",
+                    "value": "<@U02K2FFERUP>"
                   }
                 ]
               }

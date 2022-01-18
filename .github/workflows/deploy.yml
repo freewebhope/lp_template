@@ -23,3 +23,21 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           LOCAL_DIR: dist
           REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
+      #-- Slack通知 --#
+      # 成功
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: success!
+
+      # 失敗
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: failure!

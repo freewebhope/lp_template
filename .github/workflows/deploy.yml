@@ -45,11 +45,11 @@ jobs:
                   },
                   {
                     "title": "planner",
-                    "value": ${{ secrets.FWH_PLANNER }}
+                    "value": "${{ secrets.FWH_PLANNER }}"
                   },
                   {
                     "title": "coder",
-                    "value": ${{ secrets.FWH_CODER }}
+                    "value": "${{ secrets.FWH_CODER }}"
                   },
                   {
                     "title": "testURL",

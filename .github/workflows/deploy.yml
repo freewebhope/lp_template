@@ -31,7 +31,30 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: success!
+          text: テイクアンドギブニーズ（これはdscription）のLPがテストサーバにアップされました。
+          attachments: |
+            [
+              {
+                "color": "good",
+                "author_name": "${{ github.actor }}",
+                "author_icon": "${{ github.event.sender.avatar_url }}",
+                "fields": [
+                  {
+                    "title": "Commit Message",
+                    "value": "修正がある場合はcoderにご相談ください"
+                  },
+                  {
+                    "title": "coder",
+                    "value": @cobashi
+                  },
+                  {
+                    "title": "Compare URL",
+                    "value": https://test.fwh.co.jp/"${{ steps.version.outputs.rep }}"
+                  }
+                ]
+              }
+            ]
+          
 
       # 失敗
       - name: Slack Notification on Failure

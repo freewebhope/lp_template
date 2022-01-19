@@ -16,6 +16,9 @@ jobs:
         run: |
          CODER=$( echo {{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }})
          echo ::set-output name=slackid::$CODER
+         echo MY_ENV
+         echo $CODER
+         echo ${{ steps }}
       - name: Set version
         id: version
         run: |

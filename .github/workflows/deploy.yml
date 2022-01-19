@@ -14,7 +14,7 @@ jobs:
         env:
            MY_ENV: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
         run: |
-         echo ::set-output name=skackid::$env.MY_ENV
+         echo ::set-output name=slackid::${env.MY_ENV}
          echo ${{ env.MY_ENV }}"
       - name: Set version
         id: version

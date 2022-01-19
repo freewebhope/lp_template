@@ -11,8 +11,9 @@ jobs:
     steps:
       - name: Set Coder
         id: slackid
-        run: echo "::set-output name=slackid::${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}"
-      - name: Set Code@r
+        env:
+           MY_ENV: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
+        run: echo "::set-output name=slackid::env.MY_ENV"
       - name: Set version
         id: version
         run: |

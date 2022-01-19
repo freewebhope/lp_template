@@ -10,13 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Coder
-        id: coder
-        run: echo >-
-          {%- if   github.actor == 'shotakamei1023' -%} echo ::set-output name=slackid::U02DKVCMHU0;
-          {%- elif github.actor == 'yuchulK' -%} echo ::set-output name=slackid::U02K2FFERUP;
-          {%- elif github.actor == 'koide-fwh' -%} echo ::set-output name=slackid::U02CTJ1FCJH;
-          {%- else -%} echo "::set-output name=slackid::other";
-          {%- endif -%}
+        if: ${{ github.actor == 'shotakamei1023' }}
+        id: mizutani
+        run: echo "::set-output name=slackid::<@U02DKVCMHU0>"
+      - name: Set Coder
+        if: ${{ github.actor == 'yuchulK' }}
+        id: kobashi
+        run: echo "::set-output name=slackid::<@U02K2FFERUP>"
+      - name: Set Coder
+        if: ${{ github.actor == 'koide-fwh' }}
+        id: koide
+        run: echo "::set-output name=slackid::<@U02CTJ1FCJH>"
       - name: Set version
         id: version
         run: |

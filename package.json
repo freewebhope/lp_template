@@ -4,13 +4,11 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "postcss build dist/css/style.css -o dist/css/style.min.css --minify",
-        "tailwind": "tailwindcss build src/css/style.css -o dist/css/style.css --minify",
-        "watch": "watch 'npm run dev' ./dist",
-        "webp": "ts-node ./settings/convertToWebp.ts",
+        "dev": "TAILWIND_MODE=watch postcss build dist/css/style.css -o dist/css/style.min.css --watch",
+        "watch": "browser-sync start --config bs-config.js",
         "htmlminify": "npx html-minifier --input-dir ./dist/html --output-dir dist -c ./settings/html-minifer-config.conf",
-        "bs": "browser-sync start --config bs-config.js"
+        "build": "postcss build dist/css/style.css -o dist/css/style.min.css --minify",
+        "webp": "ts-node ./settings/convertToWebp.ts"
     },
     "repository": {
         "type": "git",
@@ -33,7 +31,7 @@
         "imagemin-pngquant": "^9.0.2",
         "imagemin-svgo": "^10.0.1",
         "postcss": "^8.4.5",
-        "tailwindcss": "^3.0.5"
+        "tailwindcss": "^3.0.15"
     },
     "dependencies": {
         "@fullhuman/postcss-purgecss": "^4.1.3",

@@ -14,10 +14,8 @@ jobs:
         env:
            MY_ENV: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
         run: |
-         CODER=$( echo {{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }})
-         echo ::set-output name=slackid::$CODER
-         echo MY_ENV
-         echo $CODER
+         echo "::set-output name=skackid::env.MY_ENV"
+         echo env.MY_ENV
          echo ${{ steps }}
       - name: Set version
         id: version
@@ -65,7 +63,7 @@ jobs:
                   },
                   {
                     "title": "coder",
-                    "value": "${{ steps.coder.outputs.slackid }}"
+                    "value": echo "${{ steps.coder.outputs.slackid }}"
                   }
                 ]
               }

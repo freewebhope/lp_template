@@ -11,6 +11,8 @@ jobs:
     env:
      FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
     steps:
+      - name: Set COMMIT_MESSAGE
+        run: echo ::set-env name=COMMIT_MESSAGE::$(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
       - name: Set version
         id: version
         run: |
@@ -52,8 +54,8 @@ jobs:
                     "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
                   },
                   {
-                    "title": "planner",
-                    "value": "${{ github.event.repository.description }}"
+                    "title": "Commit Message",
+                    "value": "${{ env.COMMIT_MESSAGE }}"
                   },
                   {
                     "title": "coder",
@@ -62,7 +64,6 @@ jobs:
                 ]
               }
             ]
-          
 
       # 失敗
       - name: Slack Notification on Failure

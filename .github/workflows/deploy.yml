@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
      FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
+     GIT_COMMITCOMMENT: ${{ github.event.head_commit.message }}
     steps:
       - name: Set version
         id: version
@@ -29,9 +30,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo "${{ github.actor }}",
-          echo "${{ steps.coder.outputs.slackid }}"
           echo "${{ github.event.head_commit.message }}"
+          echo "${{ env.GIT_COMMITCOMMENT }}"
       - name: Set COMMIT_MESSAGE
         run: echo ::set-env name=COMMIT_MESSAGE::$(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
       #-- Slack通知 --#
@@ -56,7 +56,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": "${{ github.event.head_commit.message }}"
+                    "value": "${{ env.GIT_COMMITCOMMENT }}"
                   },
                   {
                     "title": "coder",

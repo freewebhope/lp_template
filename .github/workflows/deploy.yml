@@ -32,8 +32,6 @@ jobs:
         run: |
           echo "${{ github.event.head_commit.message }}"
           echo "${{ env.GIT_COMMITCOMMENT }}"
-      - name: Set COMMIT_MESSAGE
-        run: echo ::set-env name=COMMIT_MESSAGE::$(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success

@@ -54,7 +54,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": "${{ env.GIT_COMMITCOMMENT }}"
+                    "value": "${{ github.event.repository.description }}"
                   },
                   {
                     "title": "coder",

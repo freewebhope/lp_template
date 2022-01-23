@@ -36,41 +36,41 @@ jobs:
           echo "${{ env.test }}"
       #-- Slack通知 --#
       # 成功
-#       - name: Slack Notification on Success
-#         if: ${{ success() }}
-#         uses: tokorom/action-slack-incoming-webhook@main
-#         env:
-#           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#         with:
-#           text: ${{ steps.version.outputs.rep }}のLPがテストサーバにアップされました。修正がある場合は${{ env.FHW_CODER }}にご相談ください
-#           attachments: |
-#             [
-#               {
-#                 "color": "good",
-#                 "author_name": "${{ github.actor }}",
-#                 "author_icon": "${{ github.event.sender.avatar_url }}",
-#                 "fields": [
-#                   {
-#                     "title": "testURL",
-#                     "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
-#                   },
-#                   {
-#                     "title": "Commit Message",
-#                     "value": "${{ github.event.repository.description }}"
-#                   },
-#                   {
-#                     "title": "coder",
-#                     "value": "${{ env.FHW_CODER }}"
-#                   }
-#                 ]
-#               }
-#             ]
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: ${{ steps.version.outputs.rep }}のLPがテストサーバにアップされました。修正がある場合は${{ env.FHW_CODER }}にご相談ください
+          attachments: |
+            [
+              {
+                "color": "good",
+                "author_name": "${{ github.actor }}",
+                "author_icon": "${{ github.event.sender.avatar_url }}",
+                "fields": [
+                  {
+                    "title": "testURL",
+                    "value": "https://test.fwh.co.jp/${{ steps.version.outputs.rep }}"
+                  },
+                  {
+                    "title": "Commit Message",
+                    "value": "${{ github.event.repository.description }}"
+                  },
+                  {
+                    "title": "coder",
+                    "value": "${{ env.FHW_CODER }}"
+                  }
+                ]
+              }
+            ]
 
-#       # 失敗
-#       - name: Slack Notification on Failure
-#         if: ${{ failure() }}
-#         uses: tokorom/action-slack-incoming-webhook@main
-#         env:
-#           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#         with:
-#           text: failure!
+      # 失敗
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: failure!

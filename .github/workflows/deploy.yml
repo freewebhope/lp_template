@@ -11,6 +11,8 @@ jobs:
     env:
      FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
      GIT_COMMITCOMMENT: $(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
+     test: |
+      ${{ github.event.head_commit.message }}
     steps:
       - name: Set version
         id: version
@@ -18,20 +20,21 @@ jobs:
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=rep::$REPOSITORY
       - uses: actions/checkout@main
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: dist
-          REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
+#       - name: FTP-Deploy-Action
+#         uses: SamKirkland/FTP-Deploy-Action@2.0.0
+#         env:
+#           FTP_SERVER: ${{ secrets.FTP_SERVER }}
+#           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+#           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+#           LOCAL_DIR: dist
+#           REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "${{ github.event.head_commit.message }}"
           echo "${{ env.GIT_COMMITCOMMENT }}"
+          echo "${{ env.test }}"
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success

@@ -18,6 +18,8 @@ jobs:
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=rep::$REPOSITORY
       - uses: actions/checkout@main
+      - run: |
+          echo "::set-output name=ENV_2::$(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')"
 #       - name: FTP-Deploy-Action
 #         uses: SamKirkland/FTP-Deploy-Action@2.0.0
 #         env:
@@ -33,6 +35,7 @@ jobs:
           echo "${{ github.event.head_commit.message }}"
           echo "${{ env.GIT_COMMITCOMMENT }}"
           echo $(echo "${{ env.GIT_COMMITCOMMENT }}" | tr -d ' ')
+          echo ${{ steps.action1.outputs.ENV_2 }}
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success
@@ -56,7 +59,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": $(echo "${{ env.GIT_COMMITCOMMENT }}" | tr -d ' ')
+                    "value": ${{ steps.action1.outputs.ENV_2 }}
                   },
                   {
                     "title": "coder",

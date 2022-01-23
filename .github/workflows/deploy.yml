@@ -32,7 +32,7 @@ jobs:
         run: |
           echo "${{ github.event.head_commit.message }}"
           echo "${{ env.GIT_COMMITCOMMENT }}"
-          echo $(echo "${{ env.GIT_COMMITCOMMENT }}" | tr ' ' '')
+          echo $(echo "${{ env.GIT_COMMITCOMMENT }}" | tr -d ' ')
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success
@@ -55,7 +55,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": "$(echo "${{ env.GIT_COMMITCOMMENT }}" | tr ' ' '')"
+                    "value": "$(echo "${{ env.GIT_COMMITCOMMENT }}" | tr -d ' ')"
                   },
                   {
                     "title": "coder",

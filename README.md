@@ -24,7 +24,7 @@ TEST:test_koreha-kebab-case
 - 公開設定は必ず`Public`にすること
 
 
-##　作業環境作成
+作業環境作成
 
 ### 1.`npm`と`git`が使えるか確認する
 - nodeのversionは`16.13.2`

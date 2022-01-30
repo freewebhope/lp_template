@@ -55,7 +55,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": ${{ steps.version.outputs.gitcomment }}
+                    "value": "${{ steps.version.outputs.gitcomment }}"
                   },
                   {
                     "title": "coder",

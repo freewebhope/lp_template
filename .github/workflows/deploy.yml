@@ -19,8 +19,8 @@ jobs:
           # エスケープ処理
           COMMENT=$(echo '${{ github.event.head_commit.message }}' | tr -d "\n")
           echo ::set-output name=comment::$COMMENT
-        env:
-         FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
+          CODER=$(echo '${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}')
+          echo ::set-output name=coder::$CODER
       - uses: actions/checkout@main
       - run: |
       - name: FTP-Deploy-Action
@@ -57,7 +57,7 @@ jobs:
                   },
                   {
                     "title": "coder",
-                    "value": "${{ env.FHW_CODER }}"
+                    "value": "{{ steps.version.outputs.coder }}"
                   }
                 ]
               }

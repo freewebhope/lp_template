@@ -15,11 +15,9 @@ jobs:
         run: |
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=rep::$REPOSITORY
-          to_git_comment=${{ github.event.head_commit.message }}
           # エスケープ処理
-          to_git_comment=$(echo ${{ github.event.head_commit.message }} | tr '\n' ' ')
-          echo $to_git_comment
-          echo "::set-output name=git_comment::$to_git_comment
+          GITCOMMENT=$(echo ${{ github.event.head_commit.message }} | tr '\n' ' ')
+          echo "::set-output name=gitcomment::$GITCOMMENT
       - uses: actions/checkout@main
       - run: |
 #       - name: FTP-Deploy-Action
@@ -57,7 +55,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": ${{ steps.version.outputs.git_comment }}
+                    "value": ${{ steps.version.outputs.gitcomment }}
                   },
                   {
                     "title": "coder",

@@ -39,7 +39,6 @@ jobs:
         uses: tokorom/action-slack-incoming-webhook@main
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          
         with:
           text: ${{ steps.version.outputs.rep }}のLPがテストサーバにアップされました。修正がある場合は${{ env.FHW_CODER }}にご相談ください
           attachments: |

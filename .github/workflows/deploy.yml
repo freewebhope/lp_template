@@ -32,6 +32,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
+          echo ${{ steps.version.outputs.gitcomment }}
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success

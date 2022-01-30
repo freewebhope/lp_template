@@ -1,14 +1,15 @@
+#-- トリガー --#
 on:
   push:
     branches:
       - main
 name: Deploy
+#-- FTP経由でサーバーへアップロード --#
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-    env:
-     FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
+    #-- githubより情報を取得 --#
     steps:
       - name: Set version
         id: version
@@ -16,23 +17,20 @@ jobs:
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=rep::$REPOSITORY
           # エスケープ処理
-          GITCOMMENT=$(echo '${{ github.event.head_commit.message }}' | tr -d "\n")
-          echo ::set-output name=gitcomment::$GITCOMMENT
+          COMMENT=$(echo '${{ github.event.head_commit.message }}' | tr -d "\n")
+          echo ::set-output name=comment::$COMMENT
+        env:
+         FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
       - uses: actions/checkout@main
       - run: |
-#       - name: FTP-Deploy-Action
-#         uses: SamKirkland/FTP-Deploy-Action@2.0.0
-#         env:
-#           FTP_SERVER: ${{ secrets.FTP_SERVER }}
-#           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-#           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-#           LOCAL_DIR: dist
-#           REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
-      - name: Dump GitHub context
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo ${{ steps.version.outputs.gitcomment }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: dist
+          REMOTE_DIR: /fwh.co.jp/public_html/test/"${{ steps.version.outputs.rep }}"
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success
@@ -55,7 +53,7 @@ jobs:
                   },
                   {
                     "title": "Commit Message",
-                    "value": "${{ steps.version.outputs.gitcomment }}"
+                    "value": "${{ steps.version.outputs.comment }}"
                   },
                   {
                     "title": "coder",

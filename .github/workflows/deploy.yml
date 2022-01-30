@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
      FHW_CODER: ${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}
-     GIT_COMMITCOMMENT: echo $(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
     steps:
       - name: Set version
         id: version
@@ -19,7 +18,7 @@ jobs:
           echo ::set-output name=rep::$REPOSITORY
           to_git_comment=${{ github.event.head_commit.message }}
           # エスケープ処理
-          to_git_comment="${to_git_comment//$'\n'/\\n}"
+          to_git_comment=$(echo "${{ github.event.head_commit.message }}" | tr '\n' ' ')
           echo $to_git_comment
           echo "::set-output name=git_comment::$to_git_comment
       - uses: actions/checkout@main
@@ -36,10 +35,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo "${{ github.event.head_commit.message }}"
-          echo "${{ env.GIT_COMMITCOMMENT }}"
-          echo $(echo "${{ env.GIT_COMMITCOMMENT }}" | tr -d ' ')
-          echo ${{ steps.action1.outputs.ENV_2 }}
       #-- Slack通知 --#
       # 成功
       - name: Slack Notification on Success

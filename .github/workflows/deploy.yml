@@ -15,13 +15,9 @@ jobs:
         run: |
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=rep::$REPOSITORY
-          - uses: actions/github-script@v3
-            id: set-result
-            with:
-              script: return "Hello!"
-              result-encoding: string
-          - name: Get result
-            run: echo "${{steps.set-result.outputs.result}}"
+          # エスケープ処理
+          GITCOMMENT=$(echo ${{ github.event.head_commit.message }} | tr -d "\n")
+          echo ::set-output name=gitcomment::$GITCOMMENT
       - uses: actions/checkout@main
       - run: |
 #       - name: FTP-Deploy-Action

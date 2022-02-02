@@ -1,3 +1,7 @@
+## 各種リンク
+
+https://tailwindcss.com/docs/installation
+
 ## LP用の新規リポジトリを作る
 
 ### 1.テンプレートを元にリポジトリを作成

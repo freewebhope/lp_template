@@ -18,7 +18,7 @@ jobs:
           echo ::set-output name=rep::$REPOSITORY
           COMMENT=$(echo '${{ github.event.head_commit.message }}' | tr -d "\n")
           echo ::set-output name=comment::$COMMENT
-          CODER=$(echo '${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || ('yuchulK' && '<@U02K2FFERUP>') || ('koide-fwh' && '<@U02CTJ1FCJH>')  }}')
+          CODER=$(echo '${{ (github.actor == 'shotakamei1023' && '<@U02DKVCMHU0>') || (github.actor == 'yuchulK' && '<@U02K2FFERUP>') || (github.actor == 'koide-fwh' && '<@U02CTJ1FCJH>')  }}')
           echo ::set-output name=coder::$CODER
       - uses: actions/checkout@main
       - run: |

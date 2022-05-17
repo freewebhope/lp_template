@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-html{
+html {
   /* ベースフォント */
   font-family: 'Noto Sans JP', sans-serif;
 }

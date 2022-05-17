@@ -7,9 +7,9 @@ module.exports = {
         // cssnano({
         //     preset: 'default'
         // }),
-        purgecss({
-            content: ['./dist/index.html','./dist/form.html'],
-            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-        })
+        // purgecss({
+        //     content: ['./dist/index.html'],
+        //     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+        // })
     ]
 }

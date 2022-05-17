@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "TAILWIND_MODE=watch postcss build dist/css/style.css -o dist/css/style.min.css --watch",
         "watch": "browser-sync start --config bs-config.js",
+        "dev":"npx tailwindcss -i ./dist/css/add.css -o ./dist/css/style.min.css --watch",
         "htmlminify": "npx html-minifier --input-dir ./dist/html --output-dir dist -c ./settings/html-minifer-config.conf",
         "build": "postcss build dist/css/style.css -o dist/css/style.min.css --minify",
         "webp": "ts-node ./settings/convertToWebp.ts"

@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-html{
-  /* ベースフォント */
-  font-family: 'Noto Sans JP', sans-serif;
-}

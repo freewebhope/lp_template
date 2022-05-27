@@ -9,6 +9,9 @@ const inset = require('./inset')
 const lineHeight = require('./lineHeight')
 const borderRadius = require('./borderRadius')
 const screens = require('./screens')
+const letterSpacing = require('./letterSpacing')
+const gap = require('./gap')
+
 
 
 module.exports = {
@@ -23,5 +26,7 @@ module.exports = {
   lineHeight,
   borderRadius,
   screens,
+  letterSpacing,
+  gap,
   extend: {}
 }

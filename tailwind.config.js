@@ -1,11 +1,9 @@
-const theme = require('./tailwind-theme/index')
+const extend = require('./tailwind-theme/index')
 
 module.exports = {
     content: ["./dist/**/*.{html,js}"],
-    theme,
+    theme:{
+        extend
+    }
 
-    variants: {
-        extend: {},
-    },
-    plugins: [],
-}
+    }

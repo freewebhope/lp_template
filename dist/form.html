@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>お友達紹介キャンペーン｜FC東京でんき??</title>
+  <title>タイトル｜お問い合わせ</title>
   <meta name="keywords" content="5個まで,***,***">
   <meta name="description" content="110文字以内">
   <!--
@@ -32,9 +32,6 @@
     
   <link rel="prefetch" href="js/function.js">
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="prefetch" href="css/style.css">
-  <!-- 郵便番号自動入力 -->
-  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 </head>
 <style>
   /* 以下テストサーバ用のCSSなので最後に消す */
@@ -71,7 +68,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="relative">
-                <input type="radio" id="radioA-1" name="ダミーテキストradio" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3" required>
+                <input type="radio" id="radioA-1" name="ダミーテキストradio" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3" required checked>
                 <label for="radioA-1" class="relative pl-o-48 radio_mark tracking-o-30">ダミーテキストA-1</label>
               </div>
               <div class="relative mt-o-24">
@@ -94,7 +91,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="relative">
-                <input type="checkbox" id="checkboxA-1" name="ダミーテキストcheckbox" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3" required>
+                <input type="checkbox" id="checkboxA-1" name="ダミーテキストcheckbox" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3" required checked>
                 <label for="checkboxA-1" class="relative pl-o-48 checkbox_mark tracking-o-30">ダミーテキストA-1</label>
               </div>
               <div class="relative mt-o-24">
@@ -118,9 +115,6 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" placeholder="株式会社〇〇" name="御社名" autocomplete="organization">
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
-              </div>
             </div>
           </div>
         </div>
@@ -132,11 +126,8 @@
               <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
-              <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28"
-                placeholder="田中太郎" name="名前" autocomplete="name">
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
-              </div>
+              <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-name"
+                placeholder="田中太郎" name="名前" autocomplete="name" required>
             </div>
           </div>
         </div>
@@ -149,10 +140,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28"
-                placeholder="タナカタロウ" name="フリガナ" autocomplete="name">
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
-              </div>
+                placeholder="タナカタロウ" name="フリガナ" autocomplete="name" id="js-furigana" required>
             </div>
           </div>
         </div>
@@ -165,15 +153,14 @@
               <p class="mt-o-8 text-20 scale-90 origin-left text-formInputBorder ml-auto md:ml-0 md:-mt-o-4">ハイフン（-）は必要ありません</p>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
-              <input type="tel" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28"
-                placeholder="ハイフンなしでご入力ください" name="電話番号" autocomplete="tel" inputmode="tel">
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
+              <input type="tel" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-tel"
+                placeholder="ハイフンなしでご入力ください" name="電話番号" autocomplete="tel" inputmode="tel" required>
+              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow" id="js-telNote">
               </div>
             </div>
           </div>
         </div>
-        <!-- 電話番号 -->
+        <!-- メールアドレス -->
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
@@ -181,10 +168,9 @@
               <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
-              <input type="email" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28"
-                placeholder="sample@sample.com" name="メールアドレス" autocomplete="email" inputmode="email">
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
+              <input type="email" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-email"
+                placeholder="sample@sample.com" name="メールアドレス" autocomplete="email" inputmode="email" required>
+              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow" id="js-emailNote">
               </div>
             </div>
           </div>
@@ -198,7 +184,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <span class="p-country-name" style="display:none;">Japan</span>
-              <input type="text" class="p-postal-code w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" size="7" maxlength="7" placeholder="ハイフンなし数字7桁" autocomplete="postal-code">
+              <input type="text"  class="p-postal-code w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" size="7" maxlength="7" placeholder="ハイフンなし数字7桁" autocomplete="postal-code" required>
             </div>
           </div>
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between mt-o-20 md:mt-o-32">
@@ -276,7 +262,7 @@
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="select_mark">
                 <select
-                  class="border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full"
+                  class="border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full" required
                   autocomplete="bd-year">
                   <option value="" selected disabled>お選びください</option>
                   <option value="1900年">1900年</option>
@@ -412,9 +398,6 @@
                   <option value="2030年">2030年</option>
                 </select>
               </div>
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
-              </div>
             </div>
           </div>
         </div>
@@ -427,10 +410,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <textarea class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 resize-none h-o-240 md:h-o-200"
-                placeholder="ハイフンなしでご入力ください" name="お問い合わせ内容" ></textarea>
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow">
-                <p>[！] ここにエラー表示が出ます</p>
-              </div>
+                placeholder="ハイフンなしでご入力ください" name="お問い合わせ内容" required></textarea>
             </div>
           </div>
         </div>
@@ -442,7 +422,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div
-                class="mx-auto mt-o-20 leading-o-18 border border-[#626262] px-o-24 py-o-12 h-o-160 overflow-scroll">
+                class="mx-auto border border-formInputBorder px-o-24 py-o-12 h-o-160 overflow-scroll">
                 <ul>
                   <li>規約</li>
                   <li>第1条名称</li>
@@ -467,6 +447,103 @@
   <footer class="bg-formFooter py-o-8">
     <p class="text-white text-center text-20 scale-90 tracking-o-60">© dummy All Rights Reserved.</p>
   </footer>
+    <!-- フリガナ自動入力 -->
+    <script src="./js/autokana.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        AutoKana.bind("#js-name", "#js-furigana");
+      });
+    </script>
+    <!-- 郵便番号自動入力 -->
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    
+    <!-- バリデーション -->
+    <script src="./js/v8n.js"></script>
+    <script>
+      const list = {
+        'name': document.getElementById('js-name'),
+        'furigana': document.getElementById('js-furigana'),
+        'email': document.getElementById('js-email'),
+        'tel': document.getElementById('js-tel'),
+      }
+
+      //名前
+      list.name.addEventListener('change',() =>{
+        //空文字削除
+        let name = list.name.value;
+        let rename = name.replace(/\s+/g, "");
+        document.getElementById('js-name').value = rename;
+        let furigana = list.furigana.value;
+        let refurigana = furigana.replace(/\s+/g, "");
+        document.getElementById('js-furigana').value = refurigana;
+        let check = 
+          v8n()
+            .not.null() // 値が空じゃないか
+            .test(rename);
+      })
+
+      //フリガナ
+      list.furigana.addEventListener('change', () => {
+        //空文字削除してカタカナ変換
+        let furigana = list.furigana.value;
+        let refurigana = furigana.replace(/\s+/g, "").replace(/[\u3041-\u3096]/g, function (match) {
+          var chr = match.charCodeAt(0) + 0x60;
+          return String.fromCharCode(chr);
+        });
+        document.getElementById('js-furigana').value = refurigana
+        let check =
+          v8n()
+            .not.null() // 値が空じゃないか
+            .test(refurigana);
+      })
+      
+      //メールアドレス
+      const emailNote = document.getElementById('js-emailNote');
+      list.email.addEventListener('change', () => {
+        try {
+          v8n()
+            .not.null() // 値がnullじゃないか
+            .string() // 文字列
+            .minLength(5) // a@b.c を想定して最低5文字
+            .pattern(/[^\s@]+@[^\s@]+\.[^\s@]+/) // eメール用の正規表現
+            .check(list.email.value);
+        } catch (error) {
+          let rule = error.rule.name;
+          if (rule == 'string') {
+            emailNote.innerHTML = '<p>半角英数で入力ください</p>'
+          }
+          if(rule == 'minLength'){
+            emailNote.innerHTML = '<p>最低5文字の入力をお願いします</p>'
+          }
+          if (rule == 'pattern') {
+            emailNote.innerHTML = '<p>正しいメールアドレスの形式で入力ください</p>'
+          }
+        }
+        })
+
+      //電話番号
+      const telNote = document.getElementById('js-telNote');
+      list.tel.addEventListener('change', () => {
+        let check =
+          v8n()
+            .not.null() // 値がnullじゃないか
+            .pattern(/^0[0-9]{9,10}$/) // 
+            .test(list.tel.value); // 検証
+        try {
+          v8n()
+            .not.null() // 値がnullじゃないか
+            .pattern(/^0[0-9]{9,10}$/) // eメール用の正規表現
+            .check(list.tel.value);
+        } catch (error) {
+          let rule = error.rule.name;
+          if (rule == 'pattern') {
+            telNote.innerHTML = '<p>半角英数、ハイフン無しで入力ください</p>'
+          }
+        }
+      })
+      
+
+    </script>
 </body>
 
 

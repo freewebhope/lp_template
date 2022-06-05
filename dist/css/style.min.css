@@ -842,6 +842,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0;
 }
 
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 html {
   /* ベースフォント */
   font-family: 'Noto Sans JP', sans-serif;

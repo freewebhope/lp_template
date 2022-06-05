@@ -76,8 +76,9 @@
                 <label for="radioA-2" class="relative pl-o-48 radio_mark tracking-o-30">ダミーテキストA-2</label>
               </div>
               <div class="relative mt-o-24">
-                <input type="radio" id="radioA-3" name="ダミーテキストradio" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
-                <label for="radioA-3" class="relative pl-o-48 radio_mark tracking-o-30"><input placeholder="その他" type="text" class="px-o-8 rounded-o-4 border border-formInputBorder w-o-440 text-24 md:w-o-590"></label>
+                <input type="radio" id="js-radioOther" name="ダミーテキストradio" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
+                <label for="js-radioOther" class="relative pl-o-48 radio_mark tracking-o-30"><input placeholder="その他" type="text" class="px-o-8 rounded-o-4 border border-formInputBorder w-o-440 text-24 md:w-o-590" id="js-radioOtherText"></label>
+                <input type="hidden" name="ラジオその他" value="" id="js-radioOtherValue">
               </div>
             </div>
           </div>
@@ -99,9 +100,10 @@
                 <label for="checkboxA-2" class="relative pl-o-48 checkbox_mark tracking-o-30">ダミーテキストA-2</label>
               </div>
               <div class="relative mt-o-24">
-                <input type="checkbox" id="checkboxA-3" name="ダミーテキストcheckbox" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
-                <label for="checkboxA-3" class="relative pl-o-48 checkbox_mark tracking-o-30"><input placeholder="その他" type="text"
+                <input type="checkbox" id="js-checkboxOther" id="checkboxA-3" name="ダミーテキストcheckbox" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
+                <label for="js-checkboxOther" class="relative pl-o-48 checkbox_mark tracking-o-30"><input id="js-checkboxOtherText" placeholder="その他" type="text"
                     class="border border-formInputBorder w-o-440 text-24 md:w-o-590 rounded-o-4 px-o-8"></label>
+                <input type="hidden" name="チェックボックスその他" value="" id="js-checkboxOtherValue">
               </div>
             </div>
           </div>
@@ -184,7 +186,7 @@
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <span class="p-country-name" style="display:none;">Japan</span>
-              <input type="text"  class="p-postal-code w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" size="7" maxlength="7" placeholder="ハイフンなし数字7桁" autocomplete="postal-code" required>
+              <input type="text" inputmode="numeric"  class="p-postal-code w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" size="7" maxlength="7" placeholder="ハイフンなし数字7桁" autocomplete="postal-code" required>
             </div>
           </div>
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between mt-o-20 md:mt-o-32">
@@ -192,59 +194,8 @@
               <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">住所</p>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
-              <div class="select_mark inline-block">
-                <select class="p-region-id border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none" autocomplete="address-level1">
-                  <option value="">--</option>
-                  <option value="北海道">北海道</option>
-                  <option value="青森県">青森県</option>
-                  <option value="岩手県">岩手県</option>
-                  <option value="宮城県">宮城県</option>
-                  <option value="秋田県">秋田県</option>
-                  <option value="山形県">山形県</option>
-                  <option value="福島県">福島県</option>
-                  <option value="茨城県">茨城県</option>
-                  <option value="栃木県">栃木県</option>
-                  <option value="群馬県">群馬県</option>
-                  <option value="埼玉県">埼玉県</option>
-                  <option value="千葉県">千葉県</option>
-                  <option value="東京都">東京都</option>
-                  <option value="神奈川県">神奈川県</option>
-                  <option value="新潟県">新潟県</option>
-                  <option value="富山県">富山県</option>
-                  <option value="石川県">石川県</option>
-                  <option value="福井県">福井県</option>
-                  <option value="山梨県">山梨県</option>
-                  <option value="長野県">長野県</option>
-                  <option value="岐阜県">岐阜県</option>
-                  <option value="静岡県">静岡県</option>
-                  <option value="愛知県">愛知県</option>
-                  <option value="三重県">三重県</option>
-                  <option value="滋賀県">滋賀県</option>
-                  <option value="京都府">京都府</option>
-                  <option value="大阪府">大阪府</option>
-                  <option value="兵庫県">兵庫県</option>
-                  <option value="奈良県">奈良県</option>
-                  <option value="和歌山県">和歌山県</option>
-                  <option value="鳥取県">鳥取県</option>
-                  <option value="島根県">島根県</option>
-                  <option value="岡山県">岡山県</option>
-                  <option value="広島県">広島県</option>
-                  <option value="山口県">山口県</option>
-                  <option value="徳島県">徳島県</option>
-                  <option value="香川県">香川県</option>
-                  <option value="愛媛県">愛媛県</option>
-                  <option value="高知県">高知県</option>
-                  <option value="福岡県">福岡県</option>
-                  <option value="佐賀県">佐賀県</option>
-                  <option value="長崎県">長崎県</option>
-                  <option value="熊本県">熊本県</option>
-                  <option value="大分県">大分県</option>
-                  <option value="宮崎県">宮崎県</option>
-                  <option value="鹿児島県">鹿児島県</option>
-                  <option value="沖縄県">沖縄県</option>
-                </select>
-              </div>
-              <input type="text" class="p-locality p-street-address p-extended-address w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 mt-o-4" autocomplete="address-level2"/>
+              <input type="text" placeholder="都道府県" class="p-region border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 w-o-160" />
+              <input type="text" placeholder="区町村" class="p-locality p-street-address p-extended-address w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 mt-o-4" autocomplete="address-level2"/>
               <input type="text"
                 class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 mt-o-4" placeholder="番地" autocomplete="address-level3"/>
                 <input type="text"
@@ -451,11 +402,40 @@
     <script src="./js/autokana.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        AutoKana.bind("#js-name", "#js-furigana");
+        AutoKana.bind("#js-name", "#js-furigana", { katakana: true });
       });
     </script>
     <!-- 郵便番号自動入力 -->
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+
+    
+    <script>
+      // ラジオその他
+      const radioOher = document.getElementById('js-radioOther');
+      const radioOherText = document.getElementById('js-radioOtherText');
+      const radioValue = document.getElementById('js-radioOtherValue');
+      //テキストクリックされた時、チェックボックスをつける
+      radioOherText.addEventListener('click', () => {
+        radioOher.checked  = true;
+      })
+      //テキストクリックされた時、チェックボックスをつける
+      radioOherText.addEventListener('change', () => {
+        radioValue.value = radioOherText.value;
+      })
+
+      // チェックボックスその他
+        const checkboxOher = document.getElementById('js-checkboxOther');
+        const checkboxOherText = document.getElementById('js-checkboxOtherText');
+        const checkboxValue = document.getElementById('js-checkboxOtherValue');
+        //テキストクリックされた時、チェックボックスをつける
+        checkboxOherText.addEventListener('click', () => {
+          checkboxOher.checked = true;
+        })
+        //テキストクリックされた時、チェックボックスをつける
+        checkboxOherText.addEventListener('change', () => {
+          checkboxValue.value = checkboxOherText.value;
+        })
+    </script>
     
     <!-- バリデーション -->
     <script src="./js/v8n.js"></script>

@@ -6,9 +6,12 @@
 html {
   /* ベースフォント */
   font-family: 'Noto Sans JP', sans-serif;
+  color: #252525;
 }
 
-
+::placeholder{
+  color: #757575;
+}
 
 
 
@@ -27,7 +30,7 @@ html {
   width: 0.32rem;
   height: 0.32rem;
   border-radius: 100%;
-  border: solid 1px #707070;
+  border: solid 1px #C6C6C6;
   background-color: white;
   left: 0;
   top: 0.02rem;
@@ -57,7 +60,7 @@ input[type="radio"]:checked + .radio_mark::after{
   width: 0.26rem;
   height: 0.26rem;
   border-radius: 0.04rem;
-  border: solid 1px #707070;
+  border: solid 1px #C6C6C6;
   background-color: white;
   left: 0;
   top: 0.08rem;
@@ -154,7 +157,7 @@ input[type="checkbox"]:checked+.checkbox_mark::before {
     width: 0.26rem;
     height: 0.26rem;
     border-radius: 0.04rem;
-    border: solid 1px #707070;
+    border: solid 1px #C6C6C6;
     background-color: white;
     left: 0;
     top: 0.04rem;
@@ -181,13 +184,13 @@ input[type="checkbox"]:checked+.checkbox_mark::before {
   .submit_mark::after {
     position: absolute;
     content: "";
-    width: 0.2rem;
-    height: 0.2rem;
-    border-bottom: solid 0.06rem #fff;
-    border-left: solid 0.06rem #fff;
+    width: 0.14rem;
+    height: 0.14rem;
+    border-bottom: solid 0.03rem #fff;
+    border-left: solid 0.03rem #fff;
     transform: rotate(-135deg);
-    right: 0.4rem;
-    top: calc(50% - 0.1rem);
+    right: 0.96rem;
+    top: calc(50% - 0.07rem);
   }
 }
 

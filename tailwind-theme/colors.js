@@ -7,7 +7,8 @@ module.exports = {
   'formTitle':"#252525",
   'formMust': "#DB1212",
   'formErrow': "#DB0000",
-  'formInputBorder':"#707070",
+  'formInputBorder':"#C6C6C6",
   'formSubmit': "#EB6F48",
-  'formFooter': "#000000"
+  'formFooter': "#000000",
+  'thanks': "#EAEAEA"
 }

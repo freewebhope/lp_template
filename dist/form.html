@@ -32,6 +32,8 @@
     
   <link rel="prefetch" href="js/function.js">
   <link rel="stylesheet" href="css/style.min.css">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <style>
   /* 以下テストサーバ用のCSSなので最後に消す */
@@ -58,13 +60,13 @@
       </div>
     </div>
     <div class="w-o-692 mx-auto mt-o-48 md:w-o-1228">
-      <form method="post">
+      <form method="post" action="./fwh_sendemail.php" onsubmit="beforeSubmit()">
         <!-- radio -->
         <div class="w-full bg-formUnitBg py-o-24 md:py-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">ダミーテキスト</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">ダミーテキスト</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="relative">
@@ -77,7 +79,7 @@
               </div>
               <div class="relative mt-o-24">
                 <input type="radio" id="js-radioOther" name="ダミーテキストradio" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
-                <label for="js-radioOther" class="relative pl-o-48 radio_mark tracking-o-30"><input placeholder="その他" type="text" class="px-o-8 rounded-o-4 border border-formInputBorder w-o-440 text-24 md:w-o-590" id="js-radioOtherText"></label>
+                <label for="js-radioOther" class="relative pl-o-48 radio_mark tracking-o-30"><input placeholder="その他" type="text" class="py-o-4 md:py-0 px-o-8 rounded-o-4 border border-formInputBorder w-o-440 text-24 md:w-o-590" id="js-radioOtherText"></label>
                 <input type="hidden" name="ラジオその他" value="" id="js-radioOtherValue">
               </div>
             </div>
@@ -87,8 +89,8 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">ダミーテキスト</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">ダミーテキスト</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="relative">
@@ -102,7 +104,7 @@
               <div class="relative mt-o-24">
                 <input type="checkbox" id="js-checkboxOther" id="checkboxA-3" name="ダミーテキストcheckbox" value="ダミーテキストA-1" class=" opacity-0 absolute top-o-3 left-o-3">
                 <label for="js-checkboxOther" class="relative pl-o-48 checkbox_mark tracking-o-30"><input id="js-checkboxOtherText" placeholder="その他" type="text"
-                    class="border border-formInputBorder w-o-440 text-24 md:w-o-590 rounded-o-4 px-o-8"></label>
+                    class="border border-formInputBorder w-o-440 text-24 md:w-o-590 rounded-o-4 py-o-4 md:py-0 px-o-8"></label>
                 <input type="hidden" name="チェックボックスその他" value="" id="js-checkboxOtherValue">
               </div>
             </div>
@@ -112,11 +114,11 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">御社名</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">御社名</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
-              <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" placeholder="株式会社〇〇" name="御社名" autocomplete="organization">
+              <input required type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" placeholder="株式会社〇〇" name="御社名" autocomplete="organization">
             </div>
           </div>
         </div>
@@ -124,12 +126,12 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">名前</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">名前</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-name"
-                placeholder="田中太郎" name="名前" autocomplete="name" required>
+                placeholder="田中太郎" name="名前" autocomplete="name" required inputmode="text">
             </div>
           </div>
         </div>
@@ -137,12 +139,12 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">フリガナ</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">フリガナ</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="text" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28"
-                placeholder="タナカタロウ" name="フリガナ" autocomplete="name" id="js-furigana" required>
+                placeholder="タナカタロウ" name="フリガナ" autocomplete="name" id="js-furigana" inputmode="text" required>
             </div>
           </div>
         </div>
@@ -150,14 +152,14 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8 md:flex-wrap md:w-o-300">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">電話番号</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
-              <p class="mt-o-8 text-20 scale-90 origin-left text-formInputBorder ml-auto md:ml-0 md:-mt-o-4">ハイフン（-）は必要ありません</p>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">電話番号</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
+              <p class="mt-o-8 text-20 scale-90 md:text-16 md:scale-100 origin-left text-formInputBorder ml-auto md:ml-0 md:-mt-o-4">ハイフン（-）は必要ありません</p>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="tel" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-tel"
                 placeholder="ハイフンなしでご入力ください" name="電話番号" autocomplete="tel" inputmode="tel" required>
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow" id="js-telNote">
+              <div class="mt-o-8 text-20 scale-90 md:text-16 md:scale-100 origin-left text-formErrow" id="js-telNote">
               </div>
             </div>
           </div>
@@ -166,13 +168,13 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">メールアドレス</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">メールアドレス</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="email" class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" id="js-email"
                 placeholder="sample@sample.com" name="メールアドレス" autocomplete="email" inputmode="email" required>
-              <div class="mt-o-8 text-20 scale-90 origin-left text-formErrow" id="js-emailNote">
+              <div class="mt-o-8 text-20 scale-90 md:text-16 md:scale-100 origin-left text-formErrow" id="js-emailNote">
               </div>
             </div>
           </div>
@@ -181,8 +183,8 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40 h-adr">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">郵便番号</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">郵便番号</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <span class="p-country-name" style="display:none;">Japan</span>
@@ -191,7 +193,7 @@
           </div>
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between mt-o-20 md:mt-o-32">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">住所</p>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">住所</p>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <input type="text" placeholder="都道府県" class="p-region border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 w-o-160" />
@@ -207,13 +209,13 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">ダミーテキスト</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">ダミーテキスト</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div class="select_mark">
                 <select
-                  class="border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full" required
+                  class="text-[#757575] js-selecColor border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full" required
                   autocomplete="bd-year">
                   <option value="" selected disabled>お選びください</option>
                   <option value="1900年">1900年</option>
@@ -352,12 +354,71 @@
             </div>
           </div>
         </div>
+        <!-- お問い合わせ日程 -->
+        <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
+          <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
+            <div class="flex items-center gap-o-8">
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">お問い合わせ日程</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
+            </div>
+            <div>
+              <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
+                <input required  inputmode="none" class="js-flatpickr w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" type="text" placeholder="第一希望">
+                <div class="select_mark mt-o-8">
+                  <select
+                    class="text-[#757575] js-selecColor border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full"
+                    required autocomplete="bd-year">
+                    <option value="" selected="" disabled="">お選びください</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-o-48 font-medium text-24 md:text-21 md:w-o-748">
+                <input required  inputmode="none" class="js-flatpickr w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28" type="text" placeholder="第二希望">
+                <div class="select_mark mt-o-8">
+                  <select
+                    class="text-[#757575] js-selecColor border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 bg-transparent z-10 cursor-pointer relative appearance-none w-full"
+                    required autocomplete="bd-year">
+                    <option value="" selected="" disabled="">お選びください</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- お問い合わせ内容 -->
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">お問い合わせ内容</p>
-              <strong class="text-20 scale-90 font-normal origin-left bg-formMust py-px px-o-12 text-white">必須</strong>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">お問い合わせ内容</p>
+              <strong class="text-20 scale-90 md:text-16 md:scale-100 font-normal origin-left bg-formMust py-px px-o-12 md:px-o-4 text-white">必須</strong>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <textarea class="w-full border-formInputBorder border py-o-16 md:py-o-8 rounded-o-4 px-o-28 resize-none h-o-240 md:h-o-200"
@@ -369,7 +430,7 @@
         <div class="w-full bg-formUnitBg py-o-24 md:my-o-40 mb-o-16 md:mb-o-40">
           <div class="w-o-620 mx-auto md:flex md:items-start md:w-o-1074 md:justify-between">
             <div class="flex items-center gap-o-8">
-              <p class="text-28 md:text-23 tracking-o-30 font-bold text-formTitle">プラポリ実装枠</p>
+              <p class="text-28 md:text-21 tracking-o-30 font-medium text-formTitle">プラポリ実装枠</p>
             </div>
             <div class="mt-o-16 font-medium text-24 md:text-21 md:mt-0 md:w-o-748">
               <div
@@ -390,14 +451,43 @@
         </div>
         <div class="mt-o-52 mb-o-60">
           <p class="text-20 text-center">利用規約に同意して送信する</p>
-          <button type="submit" class="submit_mark bg-formSubmit text-white block w-o-554 mx-auto text-31 font-bold tracking-wider py-o-28 rounded-full border-white border mt-o-8">ダミーテキスト</button>
+          <button type="submit" class="submit_mark bg-formSubmit text-white block w-o-554 mx-auto text-31 font-bold tracking-wider md:py-o-16 md:text-21 md:w-o-500 py-o-28 rounded-full border-white border mt-o-8">ダミーテキスト</button>
         </div>
       </form>
     </div>
   </section>
   <footer class="bg-formFooter py-o-8">
-    <p class="text-white text-center text-20 scale-90 tracking-o-60">© dummy All Rights Reserved.</p>
+    <p class="text-white text-center text-20 scale-90 md:text-16 md:scale-100 tracking-o-60">© dummy All Rights Reserved.</p>
   </footer>
+
+    <!-- select色調整 -->
+    <script>
+    const selectColor = document.getElementsByClassName('js-selecColor');
+    for (let i = 0; i < selectColor.length; i++) {
+        selectColor[i].addEventListener("change", function () {
+          if (selectColor[i].value == "") {
+            selectColor[i].style.color = "#757575"
+          } else {
+            selectColor[i].style.color = "#252525"
+          }
+        });
+      }
+    </script>
+
+    <!-- flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+    <script>
+        for(let i = 0; i < document.getElementsByClassName('js-flatpickr').length; i++){
+          flatpickr(document.getElementsByClassName('js-flatpickr')[i], { 
+            disableMobile: "true", 
+            minDate: "today", 
+            allowInput: true,
+            locale: 'ja', });
+        }
+    </script>
+
+
     <!-- フリガナ自動入力 -->
     <script src="./js/autokana.js"></script>
     <script>
@@ -480,6 +570,17 @@
       //メールアドレス
       const emailNote = document.getElementById('js-emailNote');
       list.email.addEventListener('change', () => {
+        let check =
+          v8n()
+            .not.null() // 値がnullじゃないか
+            .string() // 文字列
+            .minLength(5) // a@b.c を想定して最低5文字
+            .pattern(/[^\s@]+@[^\s@]+\.[^\s@]+/) // eメール用の正規表現
+            .test(list.email.value); // 検証
+        if (check == true) {
+          emailNote.innerHTML = ''
+        } 
+
         try {
           v8n()
             .not.null() // 値がnullじゃないか
@@ -509,19 +610,13 @@
             .not.null() // 値がnullじゃないか
             .pattern(/^0[0-9]{9,10}$/) // 
             .test(list.tel.value); // 検証
-        try {
-          v8n()
-            .not.null() // 値がnullじゃないか
-            .pattern(/^0[0-9]{9,10}$/) // eメール用の正規表現
-            .check(list.tel.value);
-        } catch (error) {
-          let rule = error.rule.name;
-          if (rule == 'pattern') {
-            telNote.innerHTML = '<p>半角英数、ハイフン無しで入力ください</p>'
-          }
+        if(check == true){
+          telNote.innerHTML = ''
+        }else{
+          telNote.innerHTML = '<p>半角英数、ハイフン無しで入力ください</p>'
         }
       })
-      
+
 
     </script>
 </body>

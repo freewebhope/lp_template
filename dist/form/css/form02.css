@@ -15,8 +15,7 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -56,20 +55,10 @@ textarea {
 /* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
-  -moz-appearance: revert;
-       appearance: revert;
+  appearance: revert;
 }
 
 /* reset default text opacity of input placeholder */
-::-webkit-input-placeholder {
-  color: unset;
-}
-:-ms-input-placeholder {
-  color: unset;
-}
-::-ms-input-placeholder {
-  color: unset;
-}
 ::placeholder {
   color: unset;
 }
@@ -83,7 +72,7 @@ meter {
 /* revert for bug in Chromium browsers
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-:where([contenteditable]:not([contenteditable="false"])) {
+:where([contenteditable]:not([contenteditable=false])) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
@@ -92,7 +81,7 @@ meter {
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
+:where([draggable=true]) {
   -webkit-user-drag: element;
 }
 
@@ -100,7 +89,6 @@ meter {
   max-width: 89%;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 1536px) {
   .l-wrap {
     max-width: 1228px;
@@ -110,7 +98,6 @@ meter {
 .u-displaySp {
   display: block;
 }
-
 @media screen and (min-width: 768px) {
   .u-displaySp {
     display: none;
@@ -120,7 +107,6 @@ meter {
 .u-displayPc {
   display: none;
 }
-
 @media screen and (min-width: 768px) {
   .u-displayPc {
     display: block;
@@ -133,19 +119,6 @@ meter {
   font-weight: medium;
   line-height: 1.4;
 }
-
-.form ::-webkit-input-placeholder {
-  color: #AAAAAA;
-}
-
-.form :-ms-input-placeholder {
-  color: #AAAAAA;
-}
-
-.form ::-ms-input-placeholder {
-  color: #AAAAAA;
-}
-
 .form ::placeholder {
   color: #AAAAAA;
 }
@@ -153,18 +126,15 @@ meter {
 .f-header {
   padding-top: 20px;
 }
-
 @media screen and (min-width: 1024px) {
   .f-header {
     padding-top: 40px;
   }
 }
-
 .f-header__logo {
   max-width: 22%;
   display: block;
 }
-
 @media screen and (min-width: 768px) {
   .f-header__logo {
     max-width: 12%;
@@ -174,38 +144,32 @@ meter {
 .top {
   margin-bottom: 32px;
 }
-
 .top__head {
   margin-top: 20px;
   text-align: center;
   font-size: 20px;
 }
-
 @media screen and (min-width: 576px) {
   .top__head {
     font-size: 28px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .top__head {
     font-size: 38px;
   }
 }
-
 .top__about {
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.06em;
   margin-top: 12px;
 }
-
 @media screen and (min-width: 576px) {
   .top__about {
     font-size: 16px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .top__about {
     font-size: 20px;
@@ -215,7 +179,6 @@ meter {
 .formUnit:not(:first-child) {
   margin-top: 24px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit:not(:first-child) {
     margin-top: 52px;
@@ -224,158 +187,115 @@ meter {
 
 @media screen and (min-width: 768px) {
   .formUnit {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    justify-content: space-between;
+    align-items: start;
   }
 }
-
 .formUnit__head {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: start;
+  align-items: center;
   gap: 4px;
   font-size: 16px;
   font-weight: 500;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__head {
     font-size: 20px;
     gap: 12px;
   }
 }
-
 .formUnit__head_mark_must {
   font-size: 10px;
   color: #fff;
   background-color: #8E0000;
   padding: 2px 4px;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__head_mark_must {
     font-size: 12px;
   }
 }
-
 .formUnit__head_type_checkbox {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
 }
-
 .formUnit__head_type_checkbox > h3 > small {
   font-size: 12px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__head_type_checkbox > h3 > small {
     font-size: 16px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__head_type_checkbox > h3 > small {
     font-size: 18px;
   }
 }
-
 .formUnit__about {
   position: relative;
   margin-top: 6px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about {
     width: 74%;
     margin-top: 0;
   }
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItemWrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     gap: 32px;
   }
 }
-
 .formUnit__about .inputItem:not(:first-child) {
   margin-top: 12px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem:not(:first-child) {
     margin-top: 0;
   }
 }
-
 .formUnit__about .inputItem {
   position: relative;
   width: 100%;
 }
-
 .formUnit__about .inputItem__radio {
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
 }
-
 .formUnit__about .inputItem__radio + label {
   display: block;
   background-color: #EFEFEF;
   padding: 12px 20px;
   border-radius: 4px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   font-size: 16px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__radio + label {
     padding: 0;
     height: 96px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__radio + label {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__radio:checked + label {
   background-color: #CE2628;
   color: #fff;
 }
-
-.formUnit__about .inputItem__radio_type_other[type="text"] {
+.formUnit__about .inputItem__radio_type_other[type=text] {
   width: 100%;
   padding: 12px 20px;
   border: solid 1px #707070;
@@ -383,69 +303,53 @@ meter {
   font-size: 16px;
   display: none;
 }
-
 @media screen and (min-width: 768px) {
-  .formUnit__about .inputItem__radio_type_other[type="text"] {
+  .formUnit__about .inputItem__radio_type_other[type=text] {
     margin-top: 20px;
   }
 }
-
 @media screen and (min-width: 1024px) {
-  .formUnit__about .inputItem__radio_type_other[type="text"] {
+  .formUnit__about .inputItem__radio_type_other[type=text] {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__checkbox:not(:first-child) {
   margin-top: 12px;
 }
-
 .formUnit__about .inputItem__checkbox {
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
 }
-
 .formUnit__about .inputItem__checkbox + label {
   display: block;
   background-color: #EFEFEF;
   padding: 12px 20px;
   border-radius: 4px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   font-size: 16px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__checkbox + label {
     height: 96px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__checkbox + label {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__checkbox:checked + label {
   background-color: #CE2628;
   color: #fff;
 }
-
-.formUnit__about .inputItem__checkbox_type_other[type="text"] {
+.formUnit__about .inputItem__checkbox_type_other[type=text] {
   width: 100%;
   padding: 12px 20px;
   border: solid 1px #707070;
@@ -453,19 +357,16 @@ meter {
   font-size: 16px;
   display: none;
 }
-
 @media screen and (min-width: 768px) {
-  .formUnit__about .inputItem__checkbox_type_other[type="text"] {
+  .formUnit__about .inputItem__checkbox_type_other[type=text] {
     margin-top: 20px;
   }
 }
-
 @media screen and (min-width: 1024px) {
-  .formUnit__about .inputItem__checkbox_type_other[type="text"] {
+  .formUnit__about .inputItem__checkbox_type_other[type=text] {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__text {
   width: 100%;
   padding: 12px 20px;
@@ -473,21 +374,17 @@ meter {
   border: solid 1px #707070;
   font-size: 16px;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__text {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__text_type_address:not(:first-child) {
   margin-top: 4px;
 }
-
 .formUnit__about .inputItem__text_state_readonly {
   background-color: #F2F2F2;
 }
-
 .formUnit__about .inputItem__telNote {
   position: absolute;
   right: 0;
@@ -496,14 +393,12 @@ meter {
   color: #7C7C7C;
   margin-left: auto;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__telNote {
     position: static;
     font-size: 18px;
   }
 }
-
 .formUnit__about .inputItem__zipcode {
   width: 50%;
   padding: 12px 20px;
@@ -511,13 +406,11 @@ meter {
   border: solid 1px #707070;
   font-size: 16px;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__zipcode {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__zipcodeNote {
   position: absolute;
   right: 0;
@@ -526,14 +419,12 @@ meter {
   color: #7C7C7C;
   margin-left: auto;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__zipcodeNote {
     position: static;
     font-size: 18px;
   }
 }
-
 .formUnit__about .inputItem__select {
   border: solid 1px #707070;
   border-radius: 4px;
@@ -542,18 +433,15 @@ meter {
   font-size: 16px;
   color: #757575;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__select {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__selectWrap {
   position: relative;
   border-radius: 4px;
 }
-
 .formUnit__about .inputItem__selectWrap::after {
   z-index: -1;
   position: absolute;
@@ -565,7 +453,6 @@ meter {
   border-right: solid transparent 8px;
   border-bottom: solid transparent 8px;
 }
-
 .formUnit__about .inputItem__textarea {
   width: 100%;
   border: solid 1px #707070;
@@ -574,31 +461,26 @@ meter {
   font-size: 16px;
   padding: 12px 20px;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__textarea {
     height: 200px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .inputItem__textarea {
     font-size: 20px;
   }
 }
-
 .formUnit__about .inputItem__error {
   display: none;
   font-size: 12px;
   color: #DB0000;
 }
-
 @media screen and (min-width: 768px) {
   .formUnit__about .inputItem__error {
     font-size: 18px;
   }
 }
-
 .formUnit__about .privacyWrap {
   margin: 0 auto;
   border: solid 1px #707070;
@@ -608,7 +490,6 @@ meter {
   background-color: #E8E8E8;
   font-size: 12px;
 }
-
 @media screen and (min-width: 1024px) {
   .formUnit__about .privacyWrap {
     font-size: 16px;
@@ -618,18 +499,15 @@ meter {
 .submitWrap {
   margin-top: 24px;
 }
-
 .submitWrap_text {
   font-size: 12px;
   text-align: center;
 }
-
 @media screen and (min-width: 1024px) {
   .submitWrap_text {
     font-size: 16px;
   }
 }
-
 .submitWrap_button {
   display: block;
   position: relative;
@@ -645,12 +523,10 @@ meter {
   font-weight: 700;
   cursor: pointer;
 }
-
 .submitWrap_button > span {
   display: inline-block;
   position: relative;
 }
-
 .submitWrap_button > span::after {
   position: absolute;
   content: "";
@@ -658,18 +534,15 @@ meter {
   height: 8px;
   border-top: solid #fff 4px;
   border-right: solid #fff 4px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   top: calc(50% - 4px);
   right: -40px;
 }
-
 @media screen and (min-width: 576px) {
   .submitWrap_button > span::after {
     right: -64px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .submitWrap_button > span::after {
     width: 12px;
@@ -678,14 +551,12 @@ meter {
     right: -80px;
   }
 }
-
 @media screen and (min-width: 768px) {
   .submitWrap_button {
     width: 52%;
     margin: 12px auto 0;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .submitWrap_button {
     padding: 20px 0;
@@ -707,44 +578,36 @@ meter {
   margin: 0 auto;
   line-height: 1.6;
 }
-
 @media screen and (min-width: 768px) {
   .thanks {
     max-width: 1228px;
   }
 }
-
 .thanks .head {
   max-width: 60%;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 768px) {
   .thanks .head {
     max-width: 40%;
   }
 }
-
 .thanks .head__image {
   width: 100%;
 }
-
 .thanks .contents {
   margin-top: 24px;
 }
-
 .thanks .contents .main {
   text-align: center;
   margin-top: 16px;
   font-size: 16px;
 }
-
 @media screen and (min-width: 768px) {
   .thanks .contents .main {
     font-size: 20px;
   }
 }
-
 .thanks .contents .note {
   max-width: 92%;
   margin-left: auto;
@@ -755,14 +618,12 @@ meter {
   margin-top: 16px;
   font-size: 16px;
 }
-
 @media screen and (min-width: 768px) {
   .thanks .contents .note {
     font-size: 20px;
     margin-top: 32px;
   }
 }
-
 .thanks .contents .alert {
   max-width: 92%;
   margin-left: auto;
@@ -771,14 +632,12 @@ meter {
   margin-top: 16px;
   font-size: 16px;
 }
-
 @media screen and (min-width: 768px) {
   .thanks .contents .alert {
     font-size: 20px;
     margin-top: 32px;
   }
 }
-
 .thanks .contents .alert__email {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -787,12 +646,10 @@ meter {
   border-top: dotted 1px #D0D0D0;
   border-bottom: dotted 1px #D0D0D0;
 }
-
 @media screen and (min-width: 768px) {
   .thanks .contents .alert__email {
     margin-top: 24px;
     padding-top: 24px;
     padding-bottom: 24px;
   }
-}
-/*# sourceMappingURL=form02.css.map */
+}/*# sourceMappingURL=form02.css.map */

@@ -33,12 +33,12 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) {//PHP5.1.0以上の場合の�
 $site_top = "";
 
 //①管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)（formが送信されたら通知を受け取るアドレス）
-$to = "fukamachi@fwh.co.jp";
+$to = "mizutani@fwh.co.jp";
 
 
 //②自動返信メールの送信元メールアドレス
 //必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
-$from = "fukamachi@fwh.co.jp";
+$from = "noreply@fwh.co.jp";
 
 
 
@@ -140,7 +140,7 @@ $mailSignature = <<< FOOTER
 
 ──────────────────────
 株式会社FREEWEBHOPE
-長野県長野市大字中御所字岡田53番地11　オアオシスビル2Ｆ
+〒101-0042 東京都千代田区神田東松下町３１−１ 神田三義ビル ４F
 ──────────────────────
 
 FOOTER;
@@ -524,6 +524,7 @@ function connect2val($arr){
 //管理者宛送信メールヘッダ
 function adminHeader($userMail,$post_mail,$BccMail,$to){
 	$header = '';
+	$header .= "Return-Path: $post_mail\r\n";
 	if($userMail == 1 && !empty($post_mail)) {
 		$header="From: $post_mail\n";
 		if($BccMail != '') {

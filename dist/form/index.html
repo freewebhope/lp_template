@@ -108,7 +108,7 @@
               </div>
               <div class="formUnit__about">
                 <div class="inputItem">
-                  <input type="text" class="inputItem__text" placeholder="御社名" autocomplete="organization" onchange="validationValue(this)" required name="御社名">
+                  <input type="text" class="inputItem__text" placeholder="株式会社FREE WEB HOPE" autocomplete="organization" onchange="validationValue(this)" required name="御社名">
                   <p class="inputItem__error"></p>
                 </div>
               </div>
@@ -121,7 +121,7 @@
               </div>
               <div class="formUnit__about">
                 <div class="inputItem">
-                  <input type="text" class="inputItem__text" id="js-name" placeholder="名前" autocomplete="name" required onchange="validationValue(this)" name="名前">
+                  <input type="text" class="inputItem__text" id="js-name" placeholder="田中太郎" autocomplete="name" required onchange="validationValue(this)" name="名前">
                   <p class="inputItem__error"></p>
                 </div>
               </div>
@@ -134,7 +134,7 @@
               </div>
               <div class="formUnit__about">
                 <div class="inputItem">
-                  <input type="text" class="inputItem__text" id="js-furigana" placeholder="フリガナ" required name="フリガナ">
+                  <input type="text" class="inputItem__text" id="js-furigana" placeholder="タナカタロウ" required name="フリガナ">
                   <p class="inputItem__error"></p>
                 </div>
               </div>
@@ -260,7 +260,7 @@
             </div>
             <div class="submitWrap">
               <p class="submitWrap_text">利用規約に同意して送信する</p>
-              <button type="button" onclick="postData()"><span>送信する</span></button>
+              <button type="button" class="submitWrap_button" onclick="postData()"><span>送信する</span></button>
               <input type="submit" id="js-submit" style="display: none;" class="fwh-form01_btn01">
             </div>
           </form>
@@ -277,8 +277,8 @@
       <script src="./js/lib/v8n.min.js"></script>
       <script src="./js/validation.js"></script>
       <!-- 入力サポート -->
-      <script src="./js/lib/autokana.js"></script>
-      <script src="./js/lib/yubinbango.js" charset="UTF-8"></script>
+      <script src="./js/lib/autokana.min.js"></script>
+      <script src="./js/lib/yubinbango.min.js" charset="UTF-8"></script>
       <script src="./js/support.js"></script>
       <!-- 送信時に発火 -->
       <script src="./js/submit.js"></script>
